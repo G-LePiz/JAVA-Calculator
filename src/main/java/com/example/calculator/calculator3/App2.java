@@ -54,10 +54,12 @@ public class App2  {
                 System.out.println("===========================================");
                 System.out.println("종료 하시겠습니까? (종료:exit)");
                 String exit = sc5.nextLine();
-                if(exit == "exit") break;
+                if(exit.equals("exit")) {
+                    System.out.println("끝"); // == 아니라 equals 사용을 안해서 나온 문제. // 해결 완료
+                    break;
+                }
             }
-            c.getResult();
-         //result 값
+                System.out.println(c.getResult());
         }
     }
 
