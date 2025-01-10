@@ -20,7 +20,7 @@ public class ArithmeticCalculator<T extends Number> { // i는 넘버타입으로
     }
         //double로 형 변환해서 쓰는 것
 
-    public T calculator(T num1, T num2, OperatorType operatorType) throws BadInputException { //메서드
+    public T calculator(T num1, T num2, OperatorType operatorType) throws BadInputException { // 사칙연산, 정수1, 정수2를 입력 받아서 부호에 맞게 계산
 
         switch (operatorType) {
             case PLUS:
@@ -58,7 +58,7 @@ public class ArithmeticCalculator<T extends Number> { // i는 넘버타입으로
         return null;
     }
 
-    //스트림 안에 필터를 사용하면 간단하게 끝남.
+
 
 }
 

@@ -7,20 +7,22 @@ public class App2  {
     public static void main (String[] args) throws BadInputException { //예외처리를 받아야함.
         // 필드는 무조건 private로 선언해야한다.
         Scanner sc = new Scanner(System.in); // 입력받음
-        Scanner sc2 = new Scanner(System.in); // 먼저 수식 받은거 삭제할거냐고 물어봄
-        Scanner sc3 = new Scanner(System.in);
+        Scanner sc2 = new Scanner(System.in);
+        Scanner sc3 = new Scanner(System.in); // 먼저 수식 받은거 삭제할거냐고 물어봄
         Scanner sc4 = new Scanner(System.in);
         Scanner sc5 = new Scanner(System.in);
+        Scanner sc6 = new Scanner(System.in);
+        Scanner sc7 = new Scanner(System.in);
         Calculator c = new Calculator();
 
     while (true) {
-            System.out.println("첫번째 정수를 입력하세요");
+            System.out.println("첫번째 숫자를 입력하세요");
             String putNum1 = sc.nextLine();
-            System.out.println("두번째 정수를 입력하세요");
-            String putNum2 = sc.nextLine();
+            System.out.println("두번째 숫자를 입력하세요");
+            String putNum2 = sc2.nextLine();
             while (true) {
                 System.out.println("사칙연산을 입력하세요."); // 사칙연산을 입력함
-                char operator = sc.next().charAt(0);
+                char operator = sc3.next().charAt(0);
                 OperatorType type = OperatorType.getType(operator);
                 ArithmeticCalculator a = new ArithmeticCalculator(Long.class);
 
@@ -33,15 +35,17 @@ public class App2  {
                 }
                 System.out.println("=========================================");
                 System.out.println("먼저 계산한 수식을 삭제하시겠습니까? Y/N");
-                char remove = sc2.next().charAt(0); //Y/N 입력
+                char remove = sc4.next().charAt(0); //Y/N 입력
                 if(remove == 'Y') {
+                    System.out.println("삭제가 되었습니다.");
                     c.RemoveResult();
                 } else{
-                    System.out.println("삭제하지않겠습니다.");
+                    System.out.println("계속 진행합니다.");
+                    continue;
                 }
                 System.out.println("==========================================");
                 System.out.println("전체 결과값을 삭제하시겠습니까? Y/N");
-                char allremove = sc3.next().charAt(0);
+                char allremove = sc5.next().charAt(0);
                 if(allremove == 'Y') {
                     c.AllremoveResult();
                 } else{
@@ -49,11 +53,11 @@ public class App2  {
                 }
                 System.out.println("==========================================");
                 System.out.println("숫자를 입력하여 입력값보다 큰 숫자를 출력합니다.");
-                long printnumber = sc4.nextLong();
+                long printnumber = sc6.nextLong();
                 System.out.println("입력하신 숫자보다 큰 결과값은 " + c.SearchNumber(printnumber));
                 System.out.println("===========================================");
                 System.out.println("종료 하시겠습니까? (종료:exit)");
-                String exit = sc5.nextLine();
+                String exit = sc7.nextLine();
                 if(exit.equals("exit")) {
                     System.out.println("끝"); // == 아니라 equals 사용을 안해서 나온 문제. // 해결 완료
                     break;
